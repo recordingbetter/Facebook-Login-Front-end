@@ -12,9 +12,9 @@
 </head>
 <body>
     <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function(){
         FB.init({
-            appId            : '1114307655338100',
+            appId            : '1852289665088155',
             autoLogAppEvents : true,
             xfbml            : true,
             version          : 'v2.10'
@@ -31,6 +31,7 @@
     }(document, 'script', 'facebook-jssdk'));
     </script>
 
+
     <!-- content -->
     <div class="container">
         <h1>Facebook Login front-end example</h1>
@@ -40,39 +41,39 @@
         onclick="fbLogin()">Facebook login</button>
     </div>
 
+
     <script>
     // cookie에 token이 있는지 검사하여 없을 경우에만 로그인 버튼을 보여줌
     var hasToken = cookieHasToken();
-    if (!hasToken) {
+    if (!hasToken){
         document.getElementById('btn-facebook-login').style.display = 'block';
-    } else {
+    } else{
         document.getElementById('btn-facebook-login').style.display = 'none';
     }
 
     function fbLogin() {
         //로그인 버튼을 눌렀을때 브라우저에 페이스북 로그인이 되어있는지 검사
-        FB.getLoginStatus(function(response) {
-            if(response.status == 'connected') {
-                // console.log(response);
-                backendFacebookLogin(response.authResponse)
+        FB.getLoginStatus(function(response){
+            if(response.status == 'connected'){
+                backendFacebookLogin(response.authResponse);
             } else {
-                FB.login(function(response) {
-                    // console.log(response);
-                    backendFacebookLogin(response.authResponse)
-                }, {scope: 'public_profile'});
+                FB.login(function(response){
+                    backendFacebookLogin(response.authResponse);
+                }, {scope: 'public_profile, email'});
             }
         });
     }
 
-    function backendFacebookLogin(authResponse) {
+    function backendFacebookLogin(authResponse){
         // 페이스북 로그인을 통해 받은 authResponse객체를 이용해 백엔드의 페이스북 로그인 API를 사용
         console.log(authResponse);
+        var url = 'http://localhost:8000/facebook-login/';
     }
 
-    function cookieHasToken() {
+    function cookieHasToken(){
         // # 'token'이라는 키에 해당되는 cookie가 있는지 검사결과 리턴
         var token = getCookie('token');
-        if (token == undefined || token == null || token == '') {
+        if (token == undefined || token == null || token == ''){
             return false;
         }
         return true;

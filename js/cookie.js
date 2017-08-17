@@ -1,6 +1,5 @@
 
-function getCookie(c_name)
-{
+function getCookie(c_name){
     var i,x,y,ARRcookies=document.cookie.split(";");
     for (i=0;i<ARRcookies.length;i++)
     {
@@ -14,8 +13,7 @@ function getCookie(c_name)
     }
 }
 
-function setCookie(c_name,value,exdays)
-{
+function setCookie(c_name,value,exdays){
     var exdate=new Date();
     exdate.setDate(exdate.getDate() + exdays);
     var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());

@@ -1,0 +1,22 @@
+{
+  "name": "facebook-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recordingbetter/Facebook-Login-Front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/recordingbetter/Facebook-Login-Front-end/issues"
+  },
+  "homepage": "https://github.com/recordingbetter/Facebook-Login-Front-end#readme",
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
+}
